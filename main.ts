@@ -15,7 +15,6 @@ const totalCreditElm: HTMLElement = document.getElementById("total-credits")!;
 renderseriesInTable(series);
 
 
-
 series.forEach(serie => {
     totalSeasons += serie.seasons;
     }); 
@@ -35,18 +34,7 @@ function renderseriesInTable(series: Serie[]): void {
 
  
 
-function applyFilterByName() { 
-  let text = inputSearchBox.value;
-  text = (text == null) ? '' : text;
-  clearseriesInTable();
-  let seriesFiltered: Serie[] = searchCourseByName(text, series);
-  renderseriesInTable(seriesFiltered);
-}
 
-function searchCourseByName(nameKey: string, series: Serie[]) {
-  return nameKey === '' ? series : series.filter( c => 
-    c.name.match(nameKey));
-}
 
 
 const averageSeasons = totalSeasons / series.length;
